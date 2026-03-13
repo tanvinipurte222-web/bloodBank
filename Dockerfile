@@ -10,5 +10,12 @@ COPY . /var/www/html/
 # Set working directory
 WORKDIR /var/www/html
 
-# Ensure apache runs in foreground
-CMD ["apache2-foreground"]
+# Add entrypoint script which will update Apache to listen on $PORT
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint.sh
+
+# Expose a port (informational)
+EXPOSE 80
+
+# Use entrypoint which adjusts Apache to the runtime PORT and starts Apache
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint.sh"]
