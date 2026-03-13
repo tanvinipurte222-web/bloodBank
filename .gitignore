@@ -1,0 +1,22 @@
+# Ignore local PHP config and connection files that may contain credentials
+config.php
+connection.php
+admin/connection.php
+functions/functions.php
+function1/donar.php
+/* any other local config files */
+
+# Ignore SQL dumps
+*.sql
+
+# Composer / PHPStorm / VSCode
+vendor/
+.idea/
+.vscode/
+
+# OS files
+Thumbs.db
+desktop.ini
+
+# Node
+node_modules/
